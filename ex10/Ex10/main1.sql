@@ -1,0 +1,9 @@
+CREATE OR REPLACE TRIGGER check_marks
+BEFORE INSERT OR UPDATE ON student10_1121
+FOR EACH ROW
+BEGIN
+  IF :NEW.marks < 0 OR :NEW.marks > 100 THEN
+    DBMS_OUTPUT.PUT_LINE('Invalid marks');
+  END IF;
+END;
+/
